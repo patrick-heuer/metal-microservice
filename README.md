@@ -1,5 +1,10 @@
-# microservice
-Patricks Microservice test platform
+# microservice-test
+
+Microservice test platform, using seneca.js
+(c) 2018 by Patrick Krause
+
+SETUP
+======
 
 1. install Node.JS 8 LTS:
 
