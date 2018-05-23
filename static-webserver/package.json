@@ -1,0 +1,18 @@
+{
+  "name": "static-webserver",
+  "version": "1.0.0",
+  "description": "Webserver for serving static files (html, js, pictures, assets, ...)",
+  "main": "static-webserver.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "static-webserver.js"
+  },
+  "author": "Patrick Krause",
+  "license": "ISC",
+  "dependencies": {
+    "hapi": "^17.4.0",
+    "hapi-pino": "^4.0.4",
+    "inert": "^5.1.0",
+    "path": "^0.12.7"
+  }
+}
