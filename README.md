@@ -1,5 +1,5 @@
 # microservice
-Microservice test platform
+Patricks Microservice test platform
 
 1. install Node.JS 8 LTS:
 
@@ -13,7 +13,7 @@ Microservice test platform
 
   start.cmd
 
-4. start all microservices
+4. stop all microservices
 
   stop.cmd
  
