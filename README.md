@@ -3,24 +3,26 @@
 Microservice test platform, using seneca.js
 (c) 2018 by Patrick Krause
 
+Developed & tested under Windows 10! 
+
 SETUP
 ======
 
 1. install Node.JS 8 LTS:
 
-  https://nodejs.org/en/
+https://nodejs.org/en/
 
-2. install npm packages
+2. install npm packages for all microservices
 
-  install.cmd
+install.cmd
 
 3. start all microservices
 
-  start.cmd
+start.cmd
 
 4. stop all microservices
 
-  stop.cmd
+stop.cmd
  
 5. tests
 
@@ -30,5 +32,5 @@ SETUP
 
 - api-gateway -> fiddler
 
-  http://127.0.0.1:5001/api/demo
+http://127.0.0.1:5001/api/demo
 
