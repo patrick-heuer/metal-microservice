@@ -1,7 +1,7 @@
 # metal-microservice
 
-(c) 2018 by Patrick Krause<br>
-Microservices going heavy metal! Microservice test platform, using Seneca.js framework for high scaleable node.js services.
+(c) 2018 by Patrick Krause<br><br>
+Microservices going heavy metal! Microservice test platform, using Seneca.js framework for high scaleable and robust node.js services.<br><br>
 Developed & tested under Windows 10! 
 
 SETUP
