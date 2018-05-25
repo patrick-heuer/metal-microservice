@@ -4,6 +4,12 @@
 Microservices going heavy metal! Microservice test platform, using Seneca.js framework for high scaleable and robust node.js services.<br><br>
 Developed & tested under Windows 10! 
 
+Microservices
+
+1. static-webserver (provides static web content for single page application)
+2. api-gateway (external access to the system via REST / HTTP)
+3. demo (demo use cases / businesslogic)
+
 SETUP
 ======
 
