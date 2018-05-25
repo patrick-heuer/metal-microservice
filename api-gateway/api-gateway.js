@@ -1,6 +1,11 @@
 'use strict';
 
-var hapi = require('hapi');
+var hapi = require('hapi'); // Webserver
+var hapiPino = require('hapi-pino'); // Logger
+var hapiSwagger = require('hapi-swagger'); // OpenApi/Swagger
+var inert = require('inert'); // access static files on server (for OpenApi/Swagger)
+var vision = require('vision'); // templates rendering support for hapi (for OpenApi/Swagger)
+var pack = require('./package'); // access package.json
 var seneca = require('seneca')({tag: 'api-gateway'})
   .client({port: 5003})
   .listen({port: 5002});
@@ -18,41 +23,44 @@ const webserver = hapi.server({
 
 // NOT WORKING (async/await without bluebird)
 
-webserver.route({
-    method: 'GET',
-    path: '/api/demo4',
-    handler: async (request, h) => { 
-        const result = await seneca.act({role: 'demo', cmd: 'hello'});
-        console.log(result);
-        return result;
-    }
-});
+// webserver.route({
+//     method: 'GET',
+//     path: '/api/demo4',
+//     handler: async (request, h) => { 
+//         const result = await seneca.act({role: 'demo', cmd: 'hello'});
+//         console.log(result);
+//         return result;
+//     }
+// });
 
 // WORKING (promisified with bluebird)
 
-webserver.route({
-    method: 'GET',
-    path: '/api/demo3',
-    handler: function(request, h) { 
-        return act({role: 'demo', cmd: 'hello'})
-        .then(function (result) {
-            console.log(result);
-            return result;
-        })
-        .catch(function (err) {
-            console.log(err);
-            return err;
-        });
-    }
-});
+// webserver.route({
+//     method: 'GET',
+//     path: '/api/demo3',
+//     handler: function(request, h) { 
+//         return act({role: 'demo', cmd: 'hello'})
+//         .then(function (result) {
+//             console.log(result);
+//             return result;
+//         })
+//         .catch(function (err) {
+//             console.log(err);
+//             return err;
+//         });
+//     }
+// });
 
 // WORKING (async/await with promisified bluebird)
 
 webserver.route({
     method: 'GET',
-    path: '/api/demo2',
+    path: '/api/demo',
+    config: {
+        tags: ['api'], // Swagger
+    },
     handler: async (request, h) => { 
-        const result = await act({role: 'demo', cmd: 'hello'});
+        var result = await act({role: 'demo', cmd: 'hello'});
         console.log(result);
         return result;
     }
@@ -60,30 +68,33 @@ webserver.route({
 
 // WORKING (using normal Promise)
 
-webserver.route({
-    method: 'GET',
-    path: '/api/demo',
-    handler: async (request, h) => { 
+// webserver.route({
+//     method: 'GET',
+//     path: '/api/demo',
+//     handler: async (request, h) => { 
 
-        const promise = new Promise((resolve, reject) => {
-            seneca.act({role: 'demo', cmd: 'hello'}, 
-                function (err, result) {
-                    if (err) 
-                        { reject(err); } 
-                    else 
-                        { resolve(result); }  
-            });
-        });
+//         const promise = new Promise((resolve, reject) => {
+//             seneca.act({role: 'demo', cmd: 'hello'}, 
+//                 function (err, result) {
+//                     if (err) 
+//                         { reject(err); } 
+//                     else 
+//                         { resolve(result); }  
+//             });
+//         });
 
-        return promise;
-    }
-});
+//         return promise;
+//     }
+// });
 
 // WORKING
 
 webserver.route({
     method: 'GET',
     path: '/api/simple',
+    config: {
+        tags: ['api'], // Swagger
+    },
     handler: (request, h) => { 
         return "simple string";
     }
@@ -93,22 +104,48 @@ webserver.route({
 
 async function start() {
 
-     // enable logging "hapi-pino"-plugin
+     // enable logging 
     
-     await webserver.register({
-        plugin: require('hapi-pino'),
+    await webserver.register({
+        plugin: hapiPino,
         options: {
             prettyPrint: true,
             logEvents: ['response']
         }
     });
 
+    // enable static file access (Inert -> for Swagger)
+
+    await webserver.register({
+        plugin: inert
+    });
+
+    // enable Vision (for Swagger)
+
+    await webserver.register({
+        plugin: vision
+    });
+
+    // enable OpenAPI/Swagger
+
+    await webserver.register({
+        plugin: hapiSwagger,
+        options: {
+            info: {
+                title: 'OpenAPI (Swagger) Documentation',
+                version: pack.version,
+            }
+        }
+    });
+
     
-    // start the webserver
+    // start 
 
     await webserver.start();
 
     console.log('API-Gateway up and running at:', webserver.info.uri);   
+    console.log('OpenApi/Swagger: ', webserver.info.uri + '/documentation');   
+    console.log('');   
 
 };
 

@@ -13,6 +13,9 @@
     "bluebird": "^3.5.1",
     "hapi": "^17.4.0",
     "hapi-pino": "^4.0.4",
-    "seneca": "^3.4.3"
+    "hapi-swagger": "^9.1.1",
+    "inert": "^5.1.0",
+    "seneca": "^3.4.3",
+    "vision": "^5.3.2"
   }
 }
