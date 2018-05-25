@@ -108,12 +108,7 @@ async function start() {
 
     await webserver.start();
 
-    console.log('API-Gateway up and running at:', webserver.info.uri);
-    console.log("");
-    console.log(seneca.id);
-    console.log(seneca.tag);
-    console.log(seneca.version);
-    
+    console.log('API-Gateway up and running at:', webserver.info.uri);   
 
 };
 
