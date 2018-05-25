@@ -16,9 +16,6 @@ seneca.add('role:demo,cmd:queue', (msg, reply) => {
 });
 
 console.info("Demo microservice up and running!");
-console.log("");
-console.log(seneca.id);
-console.log(seneca.tag);
-console.log(seneca.version);
+
 
 
