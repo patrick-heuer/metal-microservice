@@ -3,7 +3,7 @@
 (c) 2018 by Patrick Krause<br><br>
 Microservices going heavy metal! Microservice test platform for LOB (Line Of Business) applications - using Seneca.js framework for high scaleable and robust services.
 
-Developed & tested under Windows 10, using node.js / JavaScript
+Developed & tested under Windows 10, using Node.js / JavaScript
 
 Microservices
 
