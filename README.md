@@ -17,11 +17,11 @@
 
 ## Setup
 
-1. install Node.JS 8 LTS:
+install Node.JS 8 LTS:
 
 __https://nodejs.org/en/__
 
-2. install npm packages for all microservices:
+install npm packages for all microservices:
 
 __install.cmd__
 
@@ -37,11 +37,11 @@ __stop.cmd__
  
 ## Test
 
-1. static webpages -> browser
+static webpages -> browser
 
-__http://127.0.0.1:5000__
+  __http://127.0.0.1:5000__
 
-2. api-gateway -> fiddler/postman/browser
+api-gateway -> fiddler/postman/browser
 
-__http://127.0.0.1:5001/api/demo__
+  __http://127.0.0.1:5001/api/demo__
 
