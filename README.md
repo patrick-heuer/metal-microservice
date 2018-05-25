@@ -2,11 +2,12 @@
 
 # metal-microservice
 
-> (c) 2018 by Patrick Krause<br><br>
+> (c) 2018 by Patrick Krause
+> 
 > Microservices going heavy metal! Microservice test platform for LOB (Line Of Business) 
 > applications - using Seneca.js framework for high scaleable and robust services.
-
-Developed & tested under Windows 10, using Node.js / JavaScript
+> 
+> Developed & tested under Windows 10, using Node.js / JavaScript
 
 ## Microservices
 
@@ -14,13 +15,13 @@ Developed & tested under Windows 10, using Node.js / JavaScript
 2. api-gateway (external access to the system via REST / HTTP)
 3. demo (demo use cases / businesslogic)
 
-## SETUP
+## Setup
 
 1. install Node.JS 8 LTS:
 
 __https://nodejs.org/en/__
 
-2. install npm packages for all microservices
+2. install npm packages for all microservices:
 
 __install.cmd__
 
@@ -36,11 +37,11 @@ __stop.cmd__
  
 ## Test
 
-- static webpages -> browser
+1. static webpages -> browser
 
 __http://127.0.0.1:5000__
 
-- api-gateway -> fiddler
+2. api-gateway -> fiddler/postman/browser
 
 __http://127.0.0.1:5001/api/demo__
 
