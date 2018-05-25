@@ -22,19 +22,19 @@ install Node.JS 8 LTS:
 __https://nodejs.org/en/__
 
 install npm packages for all microservices:
-
-__install.cmd__
-
+```
+install.cmd
+```
 ## Running
 
 start all microservices:
-
-__start.cmd__
-
+```
+start.cmd
+```
 stop all microservices:
-
-__stop.cmd__
- 
+```
+stop.cmd
+ ```
 ## Test
 
 static webpages -> browser
