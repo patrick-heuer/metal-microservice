@@ -1,14 +1,15 @@
 {
-  "name": "demo",
+  "name": "business",
   "version": "1.0.0",
-  "description": "demo webservice businesslogik",
-  "main": "demo.js",
+  "description": "business logic microservice",
+  "main": "business.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "PK",
   "license": "ISC",
   "dependencies": {
+    "r-script": "0.0.3",
     "seneca": "^3.5.0"
   }
 }

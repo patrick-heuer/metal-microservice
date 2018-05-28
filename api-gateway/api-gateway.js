@@ -66,6 +66,22 @@ webserver.route({
     }
 });
 
+// calc statistics
+// example: http://127.0.0.1:5001/api/demo/calc/1.2,1.3,1.4
+webserver.route({
+    method: 'GET',
+    path: '/api/demo/calc/{values}',
+    config: {
+        tags: ['api'], // Swagger
+    },
+    handler: async (request, h) => { 
+        var s = decodeURIComponent(request.params.values);
+        var result = await act({role: 'demo', cmd: 'calc', data: s});
+        console.log(result);
+        return result;
+    }
+});
+
 // WORKING (using normal Promise)
 
 // webserver.route({
@@ -145,6 +161,7 @@ async function start() {
 
     console.log('API-Gateway up and running at:', webserver.info.uri);   
     console.log('OpenApi/Swagger: ', webserver.info.uri + '/documentation');   
+    console.log('Test: ' + 'http://127.0.0.1:5001/api/demo/calc/1.2,1.3,1.4');
     console.log('');   
 
 };

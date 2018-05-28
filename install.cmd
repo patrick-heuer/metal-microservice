@@ -4,7 +4,7 @@ cd ..
 cd api-gateway
 call npm install
 cd ..
-cd demo
+cd business
 call npm install
 cd ..
 
