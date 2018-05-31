@@ -2,18 +2,13 @@
 
 'use strict';
 
-var PORT = process.env.PORT || 5003;
+var PORT_BUSINESS = process.env.PORT_BUSINESS || 5003;
 
-//var R = require("r-script");
-var Seneca = require('seneca')({tag: 'demo'})
-  .listen({port: PORT});
+var Seneca = require('seneca')({tag: 'business'})
+  .listen({port: PORT_BUSINESS});
 
 Seneca.add('role:demo,cmd:hello', (msg, reply) => { 
     reply(null, {answer: "Hello world!"})
-});
-
-Seneca.add('role:demo,cmd:queue', (msg, reply) => { 
-    reply(null, {answer: "Hello world queued!"})
 });
 
 // input: "1.2,1.3,1.4"
@@ -29,9 +24,7 @@ Seneca.add('role:demo,cmd:calc', (msg, reply) => {
     reply(null, {answer: "avg=" + avg.toString() + " max=" + max.toString() + " min=" + min.toString()})
 });
 
-
-
-console.info("Demo microservice up and running!");
+console.info("Businesslogic microservice up and running!");
 
 
 

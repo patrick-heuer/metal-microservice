@@ -2,8 +2,8 @@
 
 'use strict';
 
-var PORT_WEBSERVER = process.env.PORT_WEBSERVER || 5001;
-var PORT = process.env.PORT || 5002;
+var PORT_API_GATEWAY_WEBSERVER = process.env.PORT_API_GATEWAY_WEBSERVER || 5001;
+var PORT_API_GATEWAY = process.env.PORT_API_GATEWAY || 5002;
 var PORT_BUSINESS = process.env.PORT_BUSINESS || 5003;
 
 var hapi = require('hapi'); // Webserver
@@ -14,14 +14,15 @@ var vision = require('vision'); // templates rendering support for hapi (for Ope
 var pack = require('./package'); // access package.json
 var seneca = require('seneca')({tag: 'api-gateway'})
   .client({port: PORT_BUSINESS})
-  .listen({port: PORT});
+  .listen({port: PORT_API_GATEWAY});
 
 var senecaPromise = require('bluebird');
 var act = senecaPromise.promisify(seneca.act, {context: seneca});  
 
 // create a webserver 
 const webserver = hapi.server({
-    port: PORT_WEBSERVER,
+    host: '0.0.0.0',
+    port: PORT_API_GATEWAY_WEBSERVER,
     routes: {
         cors: true
         }
@@ -164,10 +165,10 @@ async function start() {
     // start 
 
     await webserver.start();
-
-    console.log('API-Gateway up and running at: http://127.0.0.1:5001');   
-    console.log('OpenApi/Swagger: http://127.0.0.1:5001/documentation');   
-    console.log('Test: http://127.0.0.1:5001/api/demo/calc/1.2,1.3,1.4');
+    
+    console.log(`API-Gateway up and running at: ${webserver.info.host}:${PORT_API_GATEWAY_WEBSERVER}`);   
+    console.log(`OpenApi/Swagger: ${webserver.info.host}:${ PORT_API_GATEWAY_WEBSERVER}/documentation`);   
+    console.log(`Test: ${webserver.info.host}:${PORT_API_GATEWAY_WEBSERVER}/api/demo/calc/1.2,1.3,1.4`);
     console.log('');   
 
 };

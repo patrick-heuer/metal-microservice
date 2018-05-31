@@ -1,13 +1,14 @@
 /* Copyright (c) 2018 Patrick Krause and other contributors, MIT License */
 
-var PORT = process.env.PORT || 5000;
+var PORT_STATIC_WEBSERVER = process.env.PORT_STATIC_WEBSERVER || 5000;
 
 const Path = require('path');
 const Hapi = require('hapi');
 const Inert = require('inert');
 
-const server = new Hapi.Server({
-    port: PORT,
+const webserver = new Hapi.Server({
+    host: '0.0.0.0',
+    port: PORT_STATIC_WEBSERVER,
     routes: {
         cors: true,
         files: {
@@ -20,7 +21,7 @@ const start = async () => {
 
     // enable logging "hapi-pino"-plugin (https://github.com/pinojs/hapi-pino)
     
-    await server.register({
+    await webserver.register({
         plugin: require('hapi-pino'),
         options: {
             prettyPrint: true,
@@ -30,9 +31,9 @@ const start = async () => {
 
     // enable static files using "Inert"-plugin (https://github.com/hapijs/inert)
 
-    await server.register(Inert);
+    await webserver.register(Inert);
 
-    server.route({
+    webserver.route({
         method: 'GET',
         path: '/{param*}',
         handler: {
@@ -44,17 +45,18 @@ const start = async () => {
         }
     });
 
-    // starting the server
+    // starting the webserver
     
     try {
-        await server.start();
+        await webserver.start();
     }
     catch (err) {
         console.log(err);
         process.exit(1);
     }
 
-    console.log('Static webserver running at:', server.info.uri);
+    console.log(`Static webserver running at: ${webserver.info.host}:${PORT_STATIC_WEBSERVER}`);
+
 };
 
 start();
