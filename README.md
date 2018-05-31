@@ -13,7 +13,7 @@
 
 1. static-webserver (provides static web content for single page application)
 2. api-gateway (external access to the system via REST / HTTP)
-3. demo (demo use cases / businesslogic)
+3. business (business logic use cases)
 
 ## Setup
 
