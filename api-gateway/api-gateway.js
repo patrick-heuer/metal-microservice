@@ -159,9 +159,9 @@ async function start() {
 
     await webserver.start();
 
-    console.log('API-Gateway up and running at:', webserver.info.uri);   
-    console.log('OpenApi/Swagger: ', webserver.info.uri + '/documentation');   
-    console.log('Test: ' + 'http://127.0.0.1:5001/api/demo/calc/1.2,1.3,1.4');
+    console.log('API-Gateway up and running at: http://127.0.0.1:5001');   
+    console.log('OpenApi/Swagger: http://127.0.0.1:5001/documentation');   
+    console.log('Test: http://127.0.0.1:5001/api/demo/calc/1.2,1.3,1.4');
     console.log('');   
 
 };
