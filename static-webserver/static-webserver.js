@@ -1,9 +1,13 @@
+/* Copyright (c) 2018 Patrick Krause and other contributors, MIT License */
+
+var PORT = process.env.PORT || 5000;
+
 const Path = require('path');
 const Hapi = require('hapi');
 const Inert = require('inert');
 
 const server = new Hapi.Server({
-    port: 5000,
+    port: PORT,
     routes: {
         cors: true,
         files: {

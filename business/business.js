@@ -1,9 +1,12 @@
+/* Copyright (c) 2018 Patrick Krause and other contributors, MIT License */
 
 'use strict';
 
+var PORT = process.env.PORT || 5003;
+
 //var R = require("r-script");
 var Seneca = require('seneca')({tag: 'demo'})
-  .listen({port: '5003'});
+  .listen({port: PORT});
 
 Seneca.add('role:demo,cmd:hello', (msg, reply) => { 
     reply(null, {answer: "Hello world!"})

@@ -1,4 +1,10 @@
+/* Copyright (c) 2018 Patrick Krause and other contributors, MIT License */
+
 'use strict';
+
+var PORT_WEBSERVER = process.env.PORT_WEBSERVER || 5001;
+var PORT = process.env.PORT || 5002;
+var PORT_BUSINESS = process.env.PORT_BUSINESS || 5003;
 
 var hapi = require('hapi'); // Webserver
 var hapiPino = require('hapi-pino'); // Logger
@@ -7,15 +13,15 @@ var inert = require('inert'); // access static files on server (for OpenApi/Swag
 var vision = require('vision'); // templates rendering support for hapi (for OpenApi/Swagger)
 var pack = require('./package'); // access package.json
 var seneca = require('seneca')({tag: 'api-gateway'})
-  .client({port: 5003})
-  .listen({port: 5002});
+  .client({port: PORT_BUSINESS})
+  .listen({port: PORT});
 
 var senecaPromise = require('bluebird');
 var act = senecaPromise.promisify(seneca.act, {context: seneca});  
 
 // create a webserver 
 const webserver = hapi.server({
-    port: 5001,
+    port: PORT_WEBSERVER,
     routes: {
         cors: true
         }
