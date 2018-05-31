@@ -1,6 +1,6 @@
 /* Copyright (c) 2018 Patrick Krause and other contributors, MIT License */
 
-var PORT_STATIC_WEBSERVER = process.env.PORT_STATIC_WEBSERVER || 5000;
+var PORT_STATIC_WEBSERVER = process.env.PORT || 5000;
 
 const Path = require('path');
 const Hapi = require('hapi');

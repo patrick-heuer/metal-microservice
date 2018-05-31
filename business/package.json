@@ -11,5 +11,8 @@
   "dependencies": {
     "r-script": "0.0.3",
     "seneca": "^3.5.0"
+  },
+  "engines": {
+    "node": ">=8.10.0"
   }
 }

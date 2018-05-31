@@ -2,7 +2,7 @@
 
 'use strict';
 
-var PORT_API_GATEWAY_WEBSERVER = process.env.PORT_API_GATEWAY_WEBSERVER || 5001;
+var PORT_API_GATEWAY_WEBSERVER = process.env.PORT || 5001;
 var PORT_API_GATEWAY = process.env.PORT_API_GATEWAY || 5002;
 var PORT_BUSINESS = process.env.PORT_BUSINESS || 5003;
 
