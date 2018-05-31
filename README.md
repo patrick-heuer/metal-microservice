@@ -50,4 +50,6 @@ Swagger / OpenApi
 
  __http://127.0.0.1:5001/documentation__<br>
   
+Cloud Foundry (SAP Cloud)
 
+ __https://static-webserver.cfapps.eu10.hana.ondemand.com__<br>
