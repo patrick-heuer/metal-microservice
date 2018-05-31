@@ -11,9 +11,9 @@
 
 ## Microservices
 
-1. static-webserver (provides static web content for single page application)
-2. api-gateway (external access to the system via REST / HTTP)
-3. business (business logic use cases)
+1. __static-webserver__ (provides static web content for single page application)
+2. __api-gateway__ (external access to the system via REST / HTTP)
+3. __business__ (business logic use cases)
 
 ## Setup
 
