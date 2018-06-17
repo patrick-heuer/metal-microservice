@@ -10,7 +10,8 @@
   "author": "Patrick Krause",
   "license": "ISC",
   "dependencies": {
-    "seneca": "^3.5.0"
+    "seneca": "^3.5.0",
+    "seneca-repl": "^1.2.0"
   },
   "engines": {
     "node": ">=8.10.0"

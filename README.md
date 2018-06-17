@@ -43,8 +43,8 @@ Webserver (static webpages) -> Browser
 
 API-Gateway -> Fiddler/Postman/Browser
 
-  __http://127.0.0.1:5001/api/demo__<br>
-  __http://127.0.0.1:5001/api/demo/calc/1.2,1.3,1.4__<br>
+  __http://127.0.0.1:5001/api/business__<br>
+  __http://127.0.0.1:5001/api/business/calc/1.2,1.3,1.4__<br>
   
 Swagger / OpenApi
 

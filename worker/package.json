@@ -1,0 +1,24 @@
+{
+  "name": "worker",
+  "version": "1.0.0",
+  "description": "Worker service for async calls",
+  "main": "worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PKrause79/metal-microservice.git"
+  },
+  "author": "Patrick Krause",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PKrause79/metal-microservice/issues"
+  },
+  "homepage": "https://github.com/PKrause79/metal-microservice#readme",
+  "dependencies": {
+    "lru-cache": "^4.1.3",
+    "seneca-amqp-transport": "^2.2.0",
+    "seneca-repl": "^1.2.0"
+  }
+}
