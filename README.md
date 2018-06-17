@@ -14,6 +14,7 @@
 1. __static-webserver__ (provides static web content for single page application)
 2. __api-gateway__ (external access to the system via REST / HTTP)
 3. __business__ (business logic use cases)
+4. __worker__ (for long running async calls via RabbitMQ / AMQP)
 
 ## Setup
 
